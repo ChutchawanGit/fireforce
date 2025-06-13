@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafetyTech Pro - อุปกรณ์จราจร และอุปกรณ์เซฟตี้คุณภาพสูง</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #f59e0b;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --dark-color: #1f2937;
+            --light-gray: #f8fafc;
+            --medium-gray: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            font-weight: 500;
+            padding: 12px 32px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            border-color: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            font-weight: 500;
+            padding: 12px 32px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-1px);
+        }
+
+        .navbar {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-color) !important;
+            margin: 0 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            border-radius: 25px !important;
+            margin: 0 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: var(--primary-color) !important;
+            border-color: var(--primary-color) !important;
+            color: white !important;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            height: 200px;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--medium-gray);
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .product-description {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--medium-gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats-section {
+            background: var(--light-gray);
+            padding: 4rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--medium-gray);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #374151 100%);
+            color: white;
+            padding: 5rem 0;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            padding: 12px 16px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-color);
+        }
+
+        .badge-custom {
+            background: var(--success-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-section {
+                min-height: 60vh;
+            }
+        }
+
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="scroll-smooth">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-shield-alt me-2"></i>SafetyTech Pro
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">หน้าแรก</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">สินค้า</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">เกี่ยวกับเรา</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">ติดต่อ</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="btn btn-primary" href="#quote">ขอใบเสนอราคา</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title text-white">
+                        อุปกรณ์จราจร<br>
+                        <span style="color: var(--secondary-color);">คุณภาพสูง</span>
+                    </h1>
+                    <p class="hero-subtitle text-white">
+                        ผู้เชี่ยวชาญด้านการผลิตและจำหน่ายอุปกรณ์จราจร อุปกรณ์เซฟตี้ และเครื่องดับเพลิง มาตรฐานสากล
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#products" class="btn btn-primary btn-lg">
+                            <i class="fas fa-eye me-2"></i>ดูสินค้า
+                        </a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-phone me-2"></i>ติดต่อเรา
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center">
+                        <div class="hero-image-placeholder"
+                            style="background: rgba(255,255,255,0.1); padding: 3rem; border-radius: 20px; backdrop-filter: blur(10px);">
+                            <i class="fas fa-traffic-light" style="font-size: 8rem; color: rgba(255,255,255,0.8);"></i>
+                            <h4 class="text-white mt-3">มาตรฐานสากล</h4>
+                            <p class="text-white opacity-75">ผลิตภัณฑ์คุณภาพสูง ผ่านการรับรองมาตรฐาน</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6 animate-on-scroll">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">โปรเจคสำเร็จ</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 animate-on-scroll">
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">ปีประสบการณ์</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 animate-on-scroll">
+                    <div class="stat-item">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">ลูกค้าพึงพอใจ</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 animate-on-scroll">
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">บริการหลังการขาย</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-5">
+        <div class="container">
+            <div class="animate-on-scroll">
+                <h2 class="section-title">หมวดหมู่สินค้า</h2>
+                <p class="section-subtitle">
+                    อุปกรณ์คุณภาพสูง ผลิตตามมาตรฐานสากล พร้อมบริการติดตั้งโดยช่างผู้เชี่ยวชาญ
+                </p>
+            </div>
+
+            <!-- Product Filter Tabs -->
+            <div class="text-center mb-4">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary filter-btn active"
+                        data-filter="all">ทั้งหมด</button>
+                    <button type="button" class="btn btn-outline-primary filter-btn"
+                        data-filter="traffic">อุปกรณ์จราจร</button>
+                    <button type="button" class="btn btn-outline-primary filter-btn"
+                        data-filter="safety">อุปกรณ์เซฟตี้</button>
+                    <button type="button" class="btn btn-outline-primary filter-btn"
+                        data-filter="fire">เครื่องดับเพลิง</button>
+                    <button type="button" class="btn btn-outline-primary filter-btn"
+                        data-filter="warning">ป้ายเตือน</button>
+                    <button type="button" class="btn btn-outline-primary filter-btn"
+                        data-filter="road">วัสดุงานถนน</button>
+                </div>
+            </div>
+
+            <div id="products-container" class="row g-4">
+                <!-- Products will be loaded here dynamically -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-5">
+                <button id="load-more-btn" class="btn btn-primary btn-lg">
+                    <i class="fas fa-plus me-2"></i>ดูเพิ่มเติม
+                </button>
+                <div id="loading-spinner" class="d-none mt-3">
+                    <i class="fas fa-spinner fa-spin fa-2x text-primary"></i>
+                    <p class="mt-2 text-muted">กำลังโหลด...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="animate-on-scroll">
+                <h2 class="section-title">ทำไมต้องเลือกเรา</h2>
+                <p class="section-subtitle">
+                    เรามีความมุ่งมั่นในการให้บริการที่ดีที่สุด ด้วยสินค้าคุณภาพและบริการครบวงจร
+                </p>
+            </div>
+
+            <div class="row g-4 mt-4">
+                <div class="col-lg-4 col-md-6 animate-on-scroll">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h4>คุณภาพมาตรฐาน</h4>
+                        <p class="text-muted">
+                            สินค้าผ่านการรับรองมาตรฐานสากล และกรมทางหลวง รับประกันคุณภาพ
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 animate-on-scroll">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h4>ส่งสินค้าเร็ว</h4>
+                        <p class="text-muted">
+                            บริการจัดส่งทั่วประเทศ รวดเร็ว ปลอดภัย พร้อมบริการติดตั้งถึงหน้างาน
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 animate-on-scroll">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>ทีมผู้เชี่ยวชาญ</h4>
+                        <p class="text-muted">
+                            ประสบการณ์กว่า 15 ปี พร้อมให้คำปรึกษาและบริการหลังการขาย 24/7
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 animate-on-scroll">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <h4>ราคาโรงงาน</h4>
+                        <p class="text-muted">
+                            ราคาตรงจากโรงงาน คุ้มค่าที่สุด มีส่วนลดพิเศษสำหรับลูกค้าประจำ
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 animate-on-scroll">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h4>รับประกันสินค้า</h4>
+                        <p class="text-muted">
+                            รับประกันสินค้าทุกชิ้น มีใบรับรองคุณภาพ บริการซ่อมบำรุงครบวงจร
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 animate-on-scroll">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>ไว้วางใจได้</h4>
+                        <p class="text-muted">
+                            ผลงานกับหน่วยงานราชการ องค์กรส่วนท้องถิ่น และบริษัทเอกชนมากมาย
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 animate-on-scroll">
+                    <h2 class="text-white mb-4">ติดต่อเรา</h2>
+                    <p class="text-white opacity-75 mb-4">
+                        พร้อมให้คำปรึกษาและขอใบเสนอราคาฟรี ติดต่อเราได้ตลอด 24 ชั่วโมง
+                    </p>
+
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center text-white">
+                                <div class="feature-icon me-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h6 class="text-white mb-1">โทรศัพท์</h6>
+                                    <p class="text-white opacity-75 mb-0">02-123-4567</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center text-white">
+                                <div class="feature-icon me-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h6 class="text-white mb-1">อีเมล</h6>
+                                    <p class="text-white opacity-75 mb-0">info@safetytech.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center text-white">
+                                <div class="feature-icon me-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h6 class="text-white mb-1">ที่อยู่</h6>
+                                    <p class="text-white opacity-75 mb-0">กรุงเทพมหานคร</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center text-white">
+                                <div class="feature-icon me-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h6 class="text-white mb-1">เวลาทำการ</h6>
+                                    <p class="text-white opacity-75 mb-0">จ-ส 8:00-18:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 animate-on-scroll">
+                    <div class="contact-form">
+                        <h4 class="text-white mb-4">ขอใบเสนอราคา</h4>
+                        <form id="contactForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="ชื่อ-นามสกุล *" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="tel" class="form-control" placeholder="เบอร์โทรศัพท์ *" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="email" class="form-control" placeholder="อีเมล *" required>
+                                </div>
+                                <div class="col-12">
+                                    <select class="form-control" required>
+                                        <option value="">เลือกประเภทสินค้า *</option>
+                                        <option value="traffic">อุปกรณ์จราจร</option>
+                                        <option value="safety">อุปกรณ์เซฟตี้</option>
+                                        <option value="fire">เครื่องดับเพลิง</option>
+                                        <option value="warning">ป้ายเตือน</option>
+                                        <option value="road">วัสดุงานถนน</option>
+                                        <option value="service">บริการติดตั้ง</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control" rows="5" placeholder="รายละเอียดความต้องการ *"
+                                        required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-lg w-100">
+                                        <i class="fas fa-paper-plane me-2"></i>ส่งคำขอ
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="footer-title">
+                        <i class="fas fa-shield-alt me-2"></i>SafetyTech Pro
+                    </h5>
+                    <p class="text-white-50 mb-4">
+                        ผู้เชี่ยวชาญด้านอุปกรณ์จราจร อุปกรณ์เซฟตี้ และเครื่องดับเพลิง คุณภาพสูง มาตรฐานสากล
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="footer-link d-inline-block me-3">
+                            <i class="fab fa-youtube fa-lg"></i>
+                        </a>
+                        <a href="#" class="footer-link d-inline-block">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="footer-title">หมวดหมู่สินค้า</h6>
+                    <a href="#" class="footer-link">อุปกรณ์จราจร</a>
+                    <a href="#" class="footer-link">อุปกรณ์เซฟตี้</a>
+                    <a href="#" class="footer-link">เครื่องดับเพลิง</a>
+                    <a href="#" class="footer-link">ป้ายเตือน</a>
+                    <a href="#" class="footer-link">วัสดุงานถนน</a>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="footer-title">บริการ</h6>
+                    <a href="#" class="footer-link">ติดตั้งอุปกรณ์</a>
+                    <a href="#" class="footer-link">ให้คำปรึกษา</a>
+                    <a href="#" class="footer-link">บำรุงรักษา</a>
+                    <a href="#" class="footer-link">รับประกันสินค้า</a>
+                    <a href="#" class="footer-link">บริการหลังการขาย</a>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="footer-title">เกี่ยวกับเรา</h6>
+                    <a href="#" class="footer-link">ประวัติบริษัท</a>
+                    <a href="#" class="footer-link">ใบรับรอง</a>
+                    <a href="#" class="footer-link">ผลงาน</a>
+                    <a href="#" class="footer-link">ข่าวสาร</a>
+                    <a href="#" class="footer-link">ร่วมงานกับเรา</a>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="footer-title">ช่วยเหลือ</h6>
+                    <a href="#" class="footer-link">วิธีการสั่งซื้อ</a>
+                    <a href="#" class="footer-link">การจัดส่ง</a>
+                    <a href="#" class="footer-link">การคืนสินค้า</a>
+                    <a href="#" class="footer-link">คำถามที่พบบ่อย</a>
+                    <a href="#" class="footer-link">ติดต่อเรา</a>
+                </div>
+            </div>
+
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-white-50 mb-0">
+                        © 2025 SafetyTech Pro. สงวนลิขสิทธิ์ทุกประการ
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="footer-link me-3">นโยบายความเป็นส่วนตัว</a>
+                    <a href="#" class="footer-link">เงื่อนไขการใช้งาน</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick Contact Button -->
+    <div class="position-fixed bottom-0 end-0 p-4" style="z-index: 1050;">
+        <div class="dropdown-center dropup">
+            <button class="btn btn-primary btn-lg rounded-circle" data-bs-toggle="dropdown"
+                style="width: 60px; height: 60px;">
+                <i class="fas fa-comment"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end p-3" style="min-width: 250px;">
+                <h6 class="dropdown-header">ติดต่อด่วน</h6>
+                <a href="tel:021234567" class="dropdown-item py-2">
+                    <i class="fas fa-phone text-primary me-2"></i>โทรศัพท์
+                </a>
+                <a href="#" class="dropdown-item py-2">
+                    <i class="fab fa-line text-success me-2"></i>Line Official
+                </a>
+                <a href="#" class="dropdown-item py-2">
+                    <i class="fab fa-facebook-messenger text-primary me-2"></i>Facebook
+                </a>
+                <a href="mailto:info@safetytech.com" class="dropdown-item py-2">
+                    <i class="fas fa-envelope text-warning me-2"></i>อีเมล
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Products Database
+        const productsData = [
+            // Traffic Equipment
+            { id: 1, name: 'ป้ายจราจรสี่เหลี่ยม', category: 'traffic', price: 500, badge: 'ขายดี', icon: 'fas fa-traffic-light', color: 'var(--primary-color)', description: 'ป้ายจราจรขนาดมาตรฐาน ผลิตจากอลูมิเนียม ทนทาน' },
+            { id: 2, name: 'ไฟกระพริบ LED', category: 'traffic', price: 1200, badge: 'HOT', icon: 'fas fa-lightbulb', color: 'var(--secondary-color)', description: 'ไฟกระพริบ LED ประหยัดไฟ ใช้งานได้ 24 ชั่วโมง' },
+            { id: 3, name: 'แผงกั้นจราจร', category: 'traffic', price: 800, badge: 'มาตรฐาน', icon: 'fas fa-grip-lines', color: 'var(--danger-color)', description: 'แผงกั้นพลาสติก มาตรฐานกรมทางหลวง สีส้มสะท้อนแสง' },
+            { id: 4, name: 'กรวยจราจร PVC', category: 'traffic', price: 350, badge: 'ขายดี', icon: 'fas fa-triangle-exclamation', color: 'var(--secondary-color)', description: 'กรวยจราจร PVC สีส้ม ขนาด 70 ซม. แถบสะท้อนแสง' },
+            { id: 5, name: 'เสาแบริเออร์พลาสติก', category: 'traffic', price: 650, badge: 'ใหม่', icon: 'fas fa-bars', color: 'var(--primary-color)', description: 'เสาแบริเออร์แบบยืดหยุ่น ติดตั้งง่าย ทนทาน' },
+
+            // Safety Equipment
+            { id: 6, name: 'หมวกนิรภัย ABS', category: 'safety', price: 150, badge: 'มาตรฐาน', icon: 'fas fa-hard-hat', color: 'var(--success-color)', description: 'หมวกนิรภัย ABS มาตรฐาน มอก. ปรับขนาดได้' },
+            { id: 7, name: 'เสื้อสะท้อนแสง', category: 'safety', price: 280, badge: 'ขายดี', icon: 'fas fa-vest', color: 'var(--secondary-color)', description: 'เสื้อสะท้อนแสงคลาส 2 ผ้า Polyester ระบายอากาศดี' },
+            { id: 8, name: 'รองเท้าเซฟตี้หัวเหล็ก', category: 'safety', price: 890, badge: 'คุณภาพ', icon: 'fas fa-shoe-prints', color: 'var(--dark-color)', description: 'รองเท้าเซฟตี้หัวเหล็ก หนังแท้ พื้นกันลื่น' },
+            { id: 9, name: 'ถุงมือยาง', category: 'safety', price: 45, badge: 'ราคาดี', icon: 'fas fa-hand-paper', color: 'var(--primary-color)', description: 'ถุงมือยางธรรมชาติ กันน้ำ กันสารเคมี' },
+            { id: 10, name: 'แว่นตานิรภัย', category: 'safety', price: 120, badge: 'มาตรฐาน', icon: 'fas fa-glasses', color: 'var(--success-color)', description: 'แว่นตานิรภัย เลนส์โพลีคาร์บอเนต กันสะเก็ด' },
+
+            // Fire Equipment
+            { id: 11, name: 'ถังดับเพลิง CO2 5 ปอนด์', category: 'fire', price: 2800, badge: 'รับรอง', icon: 'fas fa-fire-extinguisher', color: 'var(--danger-color)', description: 'ถังดับเพลิง CO2 ขนาด 5 ปอนด์ มาตรฐาน UL' },
+            { id: 12, name: 'ถังดับเพลิงผงเคมีแห้ง', category: 'fire', price: 1200, badge: 'ขายดี', icon: 'fas fa-spray-can', color: 'var(--danger-color)', description: 'ถังดับเพลิงผงเคมีแห้ง 10 ปอนด์ เหมาะกับไฟ A B C' },
+            { id: 13, name: 'สายส่งน้ำดับเพลิง', category: 'fire', price: 450, badge: 'คุณภาพ', icon: 'fas fa-water', color: 'var(--primary-color)', description: 'สายส่งน้ำดับเพลิง ผ้าใบ ขนาด 1.5 นิ้ว ยาว 20 เมตร' },
+            { id: 14, name: 'หัวฉีดน้ำดับเพลิง', category: 'fire', price: 850, badge: 'มาตรฐาน', icon: 'fas fa-tint', color: 'var(--primary-color)', description: 'หัวฉีดน้ำแบบปรับรูปแบบได้ ทองเหลือง ทนทาน' },
+            { id: 15, name: 'ตู้เก็บอุปกรณ์ดับเพลิง', category: 'fire', price: 3500, badge: 'ใหม่', icon: 'fas fa-archive', color: 'var(--dark-color)', description: 'ตู้เหล็กเก็บอุปกรณ์ดับเพลิง กันสนิม ล็อคได้' },
+
+            // Warning Signs
+            { id: 16, name: 'ป้ายเตือนอันตราย', category: 'warning', price: 200, badge: 'มาตรฐาน', icon: 'fas fa-exclamation-triangle', color: 'var(--secondary-color)', description: 'ป้ายเตือนอันตราย อลูมิเนียม สะท้อนแสง ขนาด 30x30 ซม.' },
+            { id: 17, name: 'ป้ายห้ามสูบบุหรี่', category: 'warning', price: 150, badge: 'ขายดี', icon: 'fas fa-smoking-ban', color: 'var(--danger-color)', description: 'ป้ายห้ามสูบบุหรี่ อะคริลิค กันน้ำ กันแสง UV' },
+            { id: 18, name: 'ป้ายบังคับใส่หมวก', category: 'warning', price: 180, badge: 'มาตรฐาน', icon: 'fas fa-hard-hat', color: 'var(--primary-color)', description: 'ป้ายบังคับใส่หมวกนิรภัย PVC สีฟ้าขาว' },
+            { id: 19, name: 'เทปสะท้อนแสง', category: 'warning', price: 85, badge: 'ราคาดี', icon: 'fas fa-tape', color: 'var(--secondary-color)', description: 'เทปสะท้อนแสง 3M ขนาด 5 ซม. ยาว 50 เมตร' },
+            { id: 20, name: 'ป้ายทางออกฉุกเฉิน', category: 'warning', price: 320, badge: 'รับรอง', icon: 'fas fa-sign-out-alt', color: 'var(--success-color)', description: 'ป้ายทางออกฉุกเฉิน LED ไฟในตัว แบตเตอรี่สำรอง' },
+
+            // Road Materials
+            { id: 21, name: 'สีทาเส้นจราจร', category: 'road', price: 300, badge: 'คุณภาพ', icon: 'fas fa-paint-brush', color: 'var(--secondary-color)', description: 'สีทาเส้นจราจร อะคริลิค แห้งเร็ว ทนทาน 1 ปี' },
+            { id: 22, name: 'ลูกแก้วสะท้อนแสง', category: 'road', price: 120, badge: 'มาตรฐาน', icon: 'fas fa-circle', color: 'var(--primary-color)', description: 'ลูกแก้วสะท้อนแสงผสมสี เพิ่มความปลอดภัย กลางคืน' },
+            { id: 23, name: 'หินคอนกรีตย่อย', category: 'road', price: 25, badge: 'ราคาดี', icon: 'fas fa-mountain', color: 'var(--medium-gray)', description: 'หินคอนกรีตย่อย ขนาด 1-3 ซม. สำหรับงานถนน' },
+            { id: 24, name: 'ยางมะตอยปิดรอยแตก', category: 'road', price: 450, badge: 'HOT', icon: 'fas fa-fill', color: 'var(--dark-color)', description: 'ยางมะตอยร้อน ปิดรอยแตกผิวถนน กันน้ำซึม' },
+            { id: 25, name: 'พลาสติกปูผิวถนน', category: 'road', price: 890, badge: 'ใหม่', icon: 'fas fa-layer-group', color: 'var(--success-color)', description: 'พลาสติกปูผิวถนน กันลื่น ระบายน้ำดี' }
+        ];
+
+        let currentPage = 0;
+        const itemsPerPage = 6;
+        let currentFilter = 'all';
+        let filteredProducts = [...productsData];
+
+        // Initialize products on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            loadProducts();
+            setupFilterButtons();
+        });
+
+        // Filter products by category
+        function filterProducts(category) {
+            currentFilter = category;
+            currentPage = 0;
+            filteredProducts = category === 'all' ? [...productsData] : productsData.filter(product => product.category === category);
+            document.getElementById('products-container').innerHTML = '';
+            loadProducts();
+        }
+
+        // Load products with pagination
+        function loadProducts() {
+            const container = document.getElementById('products-container');
+            const startIndex = currentPage * itemsPerPage;
+            const endIndex = Math.min(startIndex + itemsPerPage, filteredProducts.length);
+
+            for (let i = startIndex; i < endIndex; i++) {
+                const product = filteredProducts[i];
+                const productCard = createProductCard(product);
+                container.appendChild(productCard);
+            }
+
+            currentPage++;
+
+            // Hide load more button if no more products
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            if (endIndex >= filteredProducts.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'block';
+            }
+        }
+
+        // Create product card element
+        function createProductCard(product) {
+            const col = document.createElement('div');
+            col.className = 'col-lg-4 col-md-6 animate-on-scroll';
+
+            col.innerHTML = `
+                <div class="product-card" onclick="viewProductDetail(${product.id})">
+                    <div class="product-image">
+                        <i class="${product.icon}" style="color: ${product.color};"></i>
+                    </div>
+                    <div class="p-4">
+                        <span class="badge-custom">${product.badge}</span>
+                        <h3 class="product-title mt-2">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price">฿${product.price.toLocaleString()}</span>
+                            <button class="btn btn-outline-primary btn-sm" onclick="event.stopPropagation(); viewProductDetail(${product.id})">
+                                ดูรายละเอียด
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            return col;
+        }
+
+        // Setup filter buttons
+        function setupFilterButtons() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    // Filter products
+                    filterProducts(this.dataset.filter);
+                });
+            });
+        }
+
+        // Load more products
+        document.getElementById('load-more-btn').addEventListener('click', function () {
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const loadMoreBtn = document.getElementById('load-more-btn');
+
+            // Show loading
+            loadMoreBtn.style.display = 'none';
+            loadingSpinner.classList.remove('d-none');
+
+            // Simulate loading delay
+            setTimeout(() => {
+                loadProducts();
+                loadingSpinner.classList.add('d-none');
+            }, 1000);
+        });
+
+        // View product detail
+        function viewProductDetail(productId) {
+            // Save product ID to sessionStorage and redirect
+            sessionStorage.setItem('selectedProductId', productId);
+            window.location.href = 'product-detail.html';
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>กำลังส่ง...';
+            submitBtn.disabled = true;
+
+            // Simulate form submission
+            setTimeout(() => {
+                // Show success message
+                const alert = document.createElement('div');
+                alert.className = 'alert alert-success alert-dismissible fade show mt-3';
+                alert.innerHTML = `
+                    <i class="fas fa-check-circle me-2"></i>
+                    ขอบคุณครับ! เราได้รับข้อมูลของคุณแล้ว จะติดต่อกลับภายใน 30 นาที
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                `;
+
+                this.appendChild(alert);
+                this.reset();
+
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+
+        // Product card hover effects
+        document.addEventListener('click', function (e) {
+            if (e.target.closest('.product-card')) {
+                const card = e.target.closest('.product-card');
+                card.style.transform = 'translateY(-2px) scale(1.01)';
+                setTimeout(() => {
+                    card.style.transform = '';
+                }, 200);
+            }
+        });
+
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/\D/g, ''));
+                const suffix = counter.textContent.replace(/\d/g, '');
+                let current = 0;
+                const increment = target / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + suffix;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current) + suffix;
+                    }
+                }, 20);
+            });
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsSection = document.querySelector('.stats-section');
+        const statsObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+
+</html>inline-block me-3">
+<i class="fab fa-facebook fa-lg"></i>
+</a>
+<a href="#" class="footer-link d-inline-block me-3">
+    <i class="fab fa-line fa-lg"></i>
+</a>
+<a href="#" class="footer-link d-
