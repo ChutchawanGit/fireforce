@@ -1,0 +1,309 @@
+{
+  "categories": {
+    "traffic": "อุปกรณ์จราจร",
+    "safety": "อุปกรณ์เซฟตี้",
+    "fire": "เครื่องดับเพลิง",
+    "warning": "ป้ายเตือน",
+    "road": "วัสดุงานถนน"
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "ป้ายจราจรสี่เหลี่ยม",
+      "category": "traffic",
+      "price": 500,
+      "badge": "ขายดี",
+      "icon": "fas fa-traffic-light",
+      "color": "#2563eb",
+      "description": "ป้ายจราจรขนาดมาตรฐาน ผลิตจากอลูมิเนียม ทนทาน แสงสะท้อนสูง เหมาะสำหรับใช้งานภายนอก",
+      "images": [
+        "assets/images/barrier.jpg",
+        "assets/images/barrier.jpg",
+        "assets/images/traffic-sign.jpg"
+      ],
+      "features": [
+        "คุณภาพมาตรฐานสากล",
+        "ทนทานต่อสภาพอากาศ",
+        "ติดตั้งง่าย",
+        "แสงสะท้อนสูง",
+        "รับประกัน 2 ปี",
+        "ผ่านการทดสอบคุณภาพ"
+      ],
+      "specifications": {
+        "ขนาด": "60x60 ซม.",
+        "วัสดุ": "อลูมิเนียม",
+        "สี": "ขาว, แดง, เหลือง",
+        "น้ำหนัก": "2.5 กก.",
+        "ความหนา": "3 มม."
+      }
+    },
+    {
+      "id": 2,
+      "name": "หมวกนิรภัย ABS",
+      "category": "safety",
+      "price": 150,
+      "badge": "มาตรฐาน",
+      "icon": "fas fa-hard-hat",
+      "color": "#10b981",
+      "description": "หมวกนิรภัย ABS มาตรฐาน มอก. ปรับขนาดได้ ระบายอากาศดี น้ำหนักเบา สวมใส่สะดวก",
+      "images": [
+        "assets/images/helmet-01.jpg",
+        "assets/images/helmet-02.jpg",
+        "assets/images/helmet-03.jpg",
+        "assets/images/helmet-04.jpg"
+      ],
+      "features": [
+        "คุณภาพมาตรฐาน มอก.",
+        "ปรับขนาดได้ 53-61 ซม.",
+        "ระบายอากาศ 6 จุด",
+        "น้ำหนักเบา 350 กรัม",
+        "สวมใส่สะดวก",
+        "รับประกัน 1 ปี",
+        "มีสายคางคางแข็ง"
+      ],
+      "specifications": {
+        "วัสดุ": "ABS พลาสติก",
+        "สี": "ขาว, เหลือง, แดง, น้ำเงิน",
+        "น้ำหนัก": "350 กรัม",
+        "ขนาด": "ปรับได้ 53-61 ซม.",
+        "มาตรฐาน": "มอก. 368-2556"
+      }
+    },
+    {
+      "id": 3,
+      "name": "ถังดับเพลิง CO2",
+      "category": "fire",
+      "price": 2800,
+      "badge": "รับรอง",
+      "icon": "fas fa-fire-extinguisher",
+      "color": "#ef4444",
+      "description": "ถังดับเพลิง CO2 ขนาด 5 ปอนด์ มาตรฐาน UL เหมาะกับไฟไฟฟ้า ไม่ทิ้งคราบ ใช้งานง่าย",
+      "images": [
+        "assets/images/fire-extinguisher-co2-01.jpg",
+        "assets/images/fire-extinguisher-co2-02.jpg"
+      ],
+      "features": [
+        "มาตรฐาน UL Listed",
+        "เหมาะกับไฟไฟฟ้า",
+        "ไม่ทิ้งคราบ",
+        "ใช้งานง่าย",
+        "ตรวจสอบได้ง่าย",
+        "รับประกัน 3 ปี",
+        "มีเกจวัดความดัน"
+      ],
+      "specifications": {
+        "ขนาด": "5 ปอนด์",
+        "ประเภท": "CO2",
+        "สี": "แดง",
+        "น้ำหนัก": "8.5 กก.",
+        "มาตรฐาน": "UL Listed"
+      }
+    },
+    {
+      "id": 4,
+      "name": "กรวยจราจรสีส้ม",
+      "category": "traffic",
+      "price": 120,
+      "badge": "ยอดนิยม",
+      "icon": "fas fa-triangle-exclamation",
+      "color": "#f97316",
+      "description": "กรวยจราจรสีส้ม ขนาด 70 ซม. ผลิตจาก PVC คุณภาพสูง ทนแสงแดด มีแถบสะท้อนแสง",
+      "images": [
+        "assets/images/traffic-cone-01.jpg",
+        "assets/images/traffic-cone-02.jpg",
+        "assets/images/traffic-cone-03.jpg"
+      ],
+      "features": [
+        "ผลิตจาก PVC คุณภาพสูง",
+        "ทนแสงแดดและฝน",
+        "มีแถบสะท้อนแสง",
+        "น้ำหนักเบา เคลื่อนย้ายง่าย",
+        "ฐานถ่วงน้ำหนัก",
+        "สีส้มสดใส",
+        "ราคาประหยัด"
+      ],
+      "specifications": {
+        "ขนาด": "70 ซม.",
+        "วัสดุ": "PVC",
+        "สี": "ส้ม",
+        "น้ำหนัก": "1.2 กก.",
+        "ฐาน": "ยางถ่วงน้ำหนัก"
+      }
+    },
+    {
+      "id": 5,
+      "name": "เสื้อสะท้อนแสง",
+      "category": "safety",
+      "price": 280,
+      "badge": "คุณภาพ",
+      "icon": "fas fa-vest",
+      "color": "#eab308",
+      "description": "เสื้อสะท้อนแสงสีเหลือง มาตรฐาน EN471 ผ้าโพลีเอสเตอร์ ระบายอากาศดี มีกระเป๋า",
+      "images": [
+        "assets/images/safety-vest-01.jpg",
+        "assets/images/safety-vest-02.jpg",
+        "assets/images/safety-vest-03.jpg",
+        "assets/images/safety-vest-04.jpg"
+      ],
+      "features": [
+        "มาตรฐาน EN471 Class 2",
+        "ผ้าโพลีเอสเตอร์คุณภาพสูง",
+        "ระบายอากาศดี",
+        "แถบสะท้อนแสง 3M",
+        "กระเป๋าหน้า 2 ใบ",
+        "ซิปหน้าแข็งแรง",
+        "ซักได้ไม่ซีด"
+      ],
+      "specifications": {
+        "วัสดุ": "โพลีเอสเตอร์",
+        "สี": "เหลือง, ส้ม",
+        "ขนาด": "S, M, L, XL, XXL",
+        "มาตรฐาน": "EN471",
+        "คุณสมบัติ": "กระเป๋าหน้า 2 ใบ"
+      }
+    },
+    {
+      "id": 6,
+      "name": "ป้ายเตือนอันตราย",
+      "category": "warning",
+      "price": 350,
+      "badge": "มาตรฐาน",
+      "icon": "fas fa-exclamation-triangle",
+      "color": "#dc2626",
+      "description": "ป้ายเตือนอันตราย ขนาด 30x30 ซม. อลูมิเนียม เคลือบสะท้อนแสง กันน้ำ กันแสงแดด",
+      "images": [
+        "assets/images/warning-sign-01.jpg",
+        "assets/images/warning-sign-02.jpg"
+      ],
+      "features": [
+        "อลูมิเนียมคุณภาพสูง",
+        "เคลือบสะท้อนแสง 3M",
+        "กันน้ำ 100%",
+        "กันแสงแดด UV",
+        "ติดตั้งง่าย",
+        "ทนทาน 5+ ปี",
+        "สีไม่ซีดจาง"
+      ],
+      "specifications": {
+        "ขนาด": "30x30 ซม.",
+        "วัสดุ": "อลูมิเนียม",
+        "สี": "เหลือง, แดง",
+        "น้ำหนัก": "0.8 กก.",
+        "เคลือบ": "สะท้อนแสง 3M"
+      }
+    },
+    {
+      "id": 7,
+      "name": "ยางกั้นจราจร",
+      "category": "road",
+      "price": 1200,
+      "badge": "ทนทาน",
+      "icon": "fas fa-road",
+      "color": "#374151",
+      "description": "ยางกั้นจราจรรีไซเคิล ยาว 1 เมตร สูง 15 ซม. ทนทาน ยืดหยุ่น ติดตั้งง่าย",
+      "images": [
+        "assets/images/rubber-barrier-01.jpg",
+        "assets/images/rubber-barrier-02.jpg",
+        "assets/images/rubber-barrier-03.jpg"
+      ],
+      "features": [
+        "ยางรีไซเคิลคุณภาพสูง",
+        "ทนทานต่อการกระแทก",
+        "ยืดหยุ่นไม่แตกหัก",
+        "ติดตั้งด้วยสกรูยึด",
+        "ประหยัดค่าบำรุง",
+        "เป็นมิตรกับสิ่งแวดล้อม",
+        "ใช้ได้นาน 10+ ปี"
+      ],
+      "specifications": {
+        "ขนาด": "100x15x10 ซม.",
+        "วัสดุ": "ยางรีไซเคิล",
+        "สี": "ดำ, เหลือง",
+        "น้ำหนัก": "15 กก.",
+        "การติดตั้ง": "สกรูยึด"
+      }
+    },
+    {
+      "id": 8,
+      "name": "ถังดับเพลิงผง",
+      "category": "fire",
+      "price": 1500,
+      "badge": "ขายดี",
+      "icon": "fas fa-fire-extinguisher",
+      "color": "#dc2626",
+      "description": "ถังดับเพลิงผงเคมีแห้ง ขนาด 10 ปอนด์ มาตรฐาน UL เหมาะกับไฟทุกประเภท",
+      "images": [
+        "assets/images/fire-extinguisher-powder-01.jpg",
+        "assets/images/fire-extinguisher-powder-02.jpg",
+        "assets/images/fire-extinguisher-powder-03.jpg"
+      ],
+      "features": [
+        "มาตรฐาน UL Listed",
+        "ดับไฟได้ทุกประเภท A,B,C",
+        "ผงเคมีแห้ง ABC",
+        "เกจวัดความดันชัดเจน",
+        "หัวฉีดทองเหลือง",
+        "รับประกัน 2 ปี",
+        "ตรวจสอบง่าย"
+      ],
+      "specifications": {
+        "ขนาด": "10 ปอนด์",
+        "ประเภท": "ผงเคมีแห้ง ABC",
+        "สี": "แดง",
+        "น้ำหนัก": "12 กก.",
+        "มาตรฐาน": "UL Listed"
+      }
+    },
+    {
+      "id": 9,
+      "name": "แผงกั้นจราจร",
+      "category": "traffic",
+      "price": 800,
+      "badge": "คุณภาพ",
+      "icon": "fas fa-road-barrier",
+      "color": "#059669",
+      "description": "แผงกั้นจราจรพลาสติก ยาว 2 เมตร สูง 1 เมตร มีขาตั้ง น้ำหนักเบา เคลื่อนย้ายง่าย",
+      "images": [
+        "assets/images/plastic-barrier-01.jpg",
+        "assets/images/plastic-barrier-02.jpg",
+        "assets/images/plastic-barrier-03.jpg",
+        "assets/images/plastic-barrier-04.jpg"
+      ],
+      "features": [
+        "พลาสติก HDPE คุณภาพสูง",
+        "น้ำหนักเบา เคลื่อนย้ายง่าย",
+        "ขาตั้งพลาสติกถ่วงน้ำ",
+        "ทนแสงแดดและฝน",
+        "ประกอบง่าย ไม่ต้องใช้เครื่องมือ",
+        "เก็บได้ประหยัดพื้นที่",
+        "สีสดใสไม่ซีด"
+      ],
+      "specifications": {
+        "ขนาด": "200x100 ซม.",
+        "วัสดุ": "พลาสติก HDPE",
+        "สี": "ส้ม, ขาว",
+        "น้ำหนัก": "8 กก.",
+        "ขาตั้ง": "พลาสติกถ่วงน้ำ"
+      }
+    },
+    {
+      "id": 10,
+      "name": "เสื้อกั๊กสะท้อนแสง โลโก้ อปพร.",
+      "category": "traffic",
+      "price": 50,
+      "badge": "ขายดี",
+      "icon": "fas fa-traffic-light",
+      "color": "#2563eb",
+      "description": "เสื้อกั๊กสะท้อนแสง โลโก้ อปพร.",
+      "images": [
+        "assets/images/1754811377693-512632311.jpg"
+      ],
+      "features": [
+        "เสื้อกั๊กสะท้อนแสง"
+      ],
+      "specifications": {
+        "วัสดุ": "ผ้าสะท้อนแสง"
+      }
+    }
+  ]
+}

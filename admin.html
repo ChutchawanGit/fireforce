@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - จัดการสินค้า</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background: #f8f9fa !important; color: #212529 !important; }
+        .form-control, .form-select { background: white !important; color: #212529 !important; border: 1px solid #ced4da !important; }
+        .form-control:focus, .form-select:focus { background: white !important; color: #212529 !important; }
+        .card { background: white !important; color: #212529 !important; }
+        .text-muted { color: #6c757d !important; }
+    </style>
+</head>
+<body>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-12">
+                <h2><i class="fas fa-cogs me-2"></i>จัดการสินค้า</h2>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Add Product Form -->
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-plus me-2"></i>เพิ่ม/แก้ไขสินค้า</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="productForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">ชื่อสินค้า *</label>
+                                    <input type="text" class="form-control" id="productName" required>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">หมวดหมู่ *</label>
+                                    <select class="form-select" id="productCategory" required>
+                                        <option value="">เลือกหมวดหมู่</option>
+                                        <option value="traffic">อุปกรณ์จราจร</option>
+                                        <option value="safety">อุปกรณ์เซฟตี้</option>
+                                        <option value="fire">เครื่องดับเพลิง</option>
+                                        <option value="warning">ป้ายเตือน</option>
+                                        <option value="road">วัสดุงานถนน</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">ราคา (บาท) *</label>
+                                    <input type="number" class="form-control" id="productPrice" required>
+                                </div>
+                                
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Badge</label>
+                                    <input type="text" class="form-control" id="productBadge" placeholder="ขายดี">
+                                </div>
+                                
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">สี</label>
+                                    <input type="color" class="form-control form-control-color" id="productColor" value="#2563eb">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Icon (Font Awesome)</label>
+                                <input type="text" class="form-control" id="productIcon" placeholder="fas fa-traffic-light">
+                                <div class="form-text">ตัวอย่าง: fas fa-traffic-light, fas fa-hard-hat, fas fa-fire-extinguisher</div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">คำอธิบาย *</label>
+                                <textarea class="form-control" id="productDescription" rows="3" required></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">รูปภาพ</label>
+                                <div id="imageInputs">
+                                    <!-- Image inputs will be added here -->
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <button type="button" class="btn btn-outline-primary btn-sm" onclick="addImageInput()">
+                                        <i class="fas fa-plus me-1"></i>เพิ่มรูป
+                                    </button>
+                                    <button type="button" class="btn btn-outline-success btn-sm" onclick="addFileInput()">
+                                        <i class="fas fa-upload me-1"></i>อัพโหลดไฟล์
+                                    </button>
+                                </div>
+                                <div class="form-text">คลิก "อัพโหลดไฟล์" เพื่อเลือกรูปจากเครื่อง หรือ "เพิ่มรูป" เพื่อใส่ path</div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">คุณสมบัติ</label>
+                                <div id="featureInputs">
+                                    <div class="input-group mb-2">
+                                        <input type="text" class="form-control" placeholder="คุณภาพมาตรฐานสากล">
+                                        <button class="btn btn-outline-danger" type="button" onclick="removeFeatureInput(this)">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-outline-primary btn-sm" onclick="addFeatureInput()">
+                                    <i class="fas fa-plus me-1"></i>เพิ่มคุณสมบัติ
+                                </button>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">ข้อมูลจำเพาะ</label>
+                                <div id="specInputs">
+                                    <div class="row mb-2">
+                                        <div class="col-5">
+                                            <input type="text" class="form-control spec-key" placeholder="ขนาด">
+                                        </div>
+                                        <div class="col-5">
+                                            <input type="text" class="form-control spec-value" placeholder="60x60 ซม.">
+                                        </div>
+                                        <div class="col-2">
+                                            <button class="btn btn-outline-danger w-100" type="button" onclick="removeSpecInput(this)">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-outline-primary btn-sm" onclick="addSpecInput()">
+                                    <i class="fas fa-plus me-1"></i>เพิ่มข้อมูลจำเพาะ
+                                </button>
+                            </div>
+                            
+                            <div class="d-flex gap-2">
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-save me-2"></i>บันทึกสินค้า
+                                </button>
+                                <button type="button" class="btn btn-secondary" onclick="clearForm()">
+                                    <i class="fas fa-refresh me-2"></i>ล้างฟอร์ม
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Products List -->
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <h5><i class="fas fa-list me-2"></i>รายการสินค้า</h5>
+                        <div class="btn-group">
+                            <button class="btn btn-primary btn-sm" onclick="downloadJSON()">
+                                <i class="fas fa-download me-1"></i>ดาวน์โหลด
+                            </button>
+                            <button class="btn btn-info btn-sm" onclick="showInstructions()">
+                                <i class="fas fa-question-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div id="productsList" style="max-height: 70vh; overflow-y: auto;">
+                            <!-- Products will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
