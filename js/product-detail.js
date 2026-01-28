@@ -21,14 +21,22 @@ const elements = {
 
 // Initialize page
 document.addEventListener('DOMContentLoaded', async () => {
+    console.log('เริ่มโหลดหน้ารายละเอียดสินค้า...');
+    
     await loadProductsData();
     const productId = sessionStorage.getItem('selectedProductId');
+    console.log('Product ID จาก sessionStorage:', productId);
     
     if (productId) {
         loadProductDetail(parseInt(productId));
         loadRelatedProducts(parseInt(productId));
     } else {
-        window.location.href = 'index.html';
+        console.log('ไม่พบ Product ID - กลับไปหน้าแรก');
+        alert('ไม่พบข้อมูลสินค้า กรุณาเลือกสินค้าจากหน้าแรก');
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 2000);
+        return;
     }
     
     setupEventListeners();
@@ -41,19 +49,105 @@ async function loadProductsData() {
         productsData = await response.json();
     } catch (error) {
         console.error('Error loading products:', error);
-        productsData = { categories: {}, products: [] };
+        // ใช้ข้อมูลจำลองแทน
+        productsData = {
+            categories: {
+                'traffic': 'อุปกรณ์จราจร',
+                'safety': 'อุปกรณ์เซฟตี้', 
+                'fire': 'เครื่องดับเพลิง',
+                'warning': 'ป้ายเตือน',
+                'road': 'วัสดุงานถนน'
+            },
+            products: [
+                {
+                    id: 1,
+                    name: 'ป้ายจราจรสี่เหลี่ยม',
+                    category: 'traffic',
+                    price: 500,
+                    badge: 'ขายดี',
+                    icon: 'fas fa-traffic-light',
+                    color: '#2563eb',
+                    description: 'ป้ายจราจรขนาดมาตรฐาน ผลิตจากอลูมิเนียม ทนทาน แสงสะท้อนสูง เหมาะสำหรับใช้งานทั่วไป',
+                    features: [
+                        'วัสดุอลูมิเนียมคุณภาพสูง',
+                        'แสงสะท้อนสูง มองเห็นชัดเจนในเวลากลางคืน',
+                        'ทนต่อสภาพอากาศ กันน้ำ กันแดด',
+                        'ติดตั้งง่าย มีอุปกรณ์ครบชุด'
+                    ],
+                    specifications: {
+                        'ขนาด': '60 x 60 ซม.',
+                        'วัสดุ': 'อลูมิเนียม',
+                        'ความหนา': '2 มม.',
+                        'น้ำหนัก': '1.5 กก.'
+                    }
+                },
+                {
+                    id: 2,
+                    name: 'หมวกนิรภัย ABS',
+                    category: 'safety',
+                    price: 150,
+                    badge: 'มาตรฐาน',
+                    icon: 'fas fa-hard-hat',
+                    color: '#10b981',
+                    description: 'หมวกนิรภัย ABS มาตรฐาน มอก. ปรับขนาดได้ ระบายอากาศดี เหมาะสำหรับงานก่อสร้าง',
+                    features: [
+                        'วัสดุ ABS คุณภาพสูง',
+                        'ปรับขนาดได้ เหมาะกับศีรษะทุกขนาด',
+                        'ระบายอากาศดี ไม่อับชื้น',
+                        'ผ่านมาตรฐาน มอก. 1494-2541'
+                    ],
+                    specifications: {
+                        'วัสดุ': 'ABS',
+                        'ขนาด': 'ปรับได้ 52-62 ซม.',
+                        'น้ำหนัก': '350 กรัม',
+                        'มาตรฐาน': 'มอก. 1494-2541'
+                    }
+                },
+                {
+                    id: 3,
+                    name: 'ถังดับเพลิง CO2',
+                    category: 'fire',
+                    price: 2800,
+                    badge: 'รับรอง',
+                    icon: 'fas fa-fire-extinguisher',
+                    color: '#ef4444',
+                    description: 'ถังดับเพลิง CO2 ขนาด 5 ปอนด์ มาตรฐาน UL เหมาะกับไฟไฟฟ้า ไม่ทิ้งคราบ',
+                    features: [
+                        'ดับไฟประเภท B และ C',
+                        'ไม่ทิ้งคราบ เหมาะกับอุปกรณ์ไฟฟ้า',
+                        'ผ่านมาตรฐาน UL',
+                        'มีเกจวัดความดัน'
+                    ],
+                    specifications: {
+                        'ขนาด': '5 ปอนด์',
+                        'ประเภทไฟ': 'B, C',
+                        'มาตรฐาน': 'UL Listed',
+                        'น้ำหนัก': '8.5 กก.'
+                    }
+                }
+            ]
+        };
     }
 }
 
 // Load product detail
 function loadProductDetail(productId) {
+    console.log('กำลังโหลดรายละเอียดสินค้า ID:', productId);
+    console.log('ข้อมูลสินค้าทั้งหมด:', productsData);
+    
     currentProduct = productsData.products.find(p => p.id === productId);
+    console.log('สินค้าที่พบ:', currentProduct);
     
     if (!currentProduct) {
-        window.location.href = 'index.html';
+        console.log('ไม่พบสินค้า - กลับไปหน้าแรก');
+        alert('ไม่พบสินค้าที่ต้องการ กรุณาเลือกสินค้าจากหน้าแรก');
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 2000);
         return;
     }
 
+    console.log('พบสินค้าแล้ว - เริ่มอัพเดตข้อมูล');
     updatePageTitle();
     updateProductInfo();
     loadProductFeatures();

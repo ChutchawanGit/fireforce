@@ -293,6 +293,7 @@ function updateLoadMoreButton(shouldHide) {
 
 // View Product Detail
 function viewProductDetail(productId) {
+    console.log('กำลังไปยังหน้ารายละเอียดสินค้า ID:', productId);
     sessionStorage.setItem('selectedProductId', productId);
     window.location.href = 'product-detail.html';
 }

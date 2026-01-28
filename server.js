@@ -4,7 +4,7 @@ const path = require('path');
 const multer = require('multer');
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 // Middleware
 app.use(express.json({ limit: '50mb' }));
@@ -58,5 +58,5 @@ app.post('/api/upload', upload.single('image'), (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
-    console.log('กรุณาเปิดเบราว์เซอร์ไปที่ http://localhost:3000');
+    console.log('กรุณาเปิดเบราว์เซอร์ไปที่ http://localhost:3001');
 });
