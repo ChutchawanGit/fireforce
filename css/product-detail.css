@@ -149,40 +149,31 @@ body {
 
 .feature-item {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 0.75rem;
-    padding: 0.75rem 1rem;
-    background: #f8fafc;
-    border-radius: 8px;
-    border-left: 3px solid var(--primary-color);
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--light-gray);
+    border-radius: 10px;
     transition: all 0.2s ease;
 }
 
 .feature-item:hover {
     background: #f1f5f9;
-    transform: translateX(3px);
+    transform: translateX(5px);
 }
 
 .feature-icon {
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
     background: var(--primary-color);
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 0.75rem;
-    font-size: 0.75rem;
+    margin-right: 1rem;
+    font-size: 1.2rem;
     flex-shrink: 0;
-    margin-top: 2px;
-}
-
-.feature-item > div {
-    flex: 1;
-    line-height: 1.5;
-    color: var(--dark-color);
-    font-size: 0.95rem;
 }
 
 /* Quantity Selector */

@@ -90,48 +90,32 @@ async function loadProductsData() {
         console.log('โหลดข้อมูลสำเร็จ:', productsData);
     } catch (error) {
         console.error('Error loading products:', error);
-        // ใช้ข้อมูลจำลองแทน
-        productsData = {
-            categories: {
-                'traffic': 'อุปกรณ์จราจร',
-                'safety': 'อุปกรณ์เซฟตี้', 
-                'fire': 'เครื่องดับเพลิง',
-                'warning': 'ป้ายเตือน',
-                'road': 'วัสดุงานถนน'
-            },
-            products: [
-                {
-                    id: 1,
-                    name: 'ป้ายจราจรสี่เหลี่ยม',
-                    category: 'traffic',
-                    price: 500,
-                    badge: 'ขายดี',
-                    icon: 'fas fa-traffic-light',
-                    color: '#2563eb',
-                    description: 'ป้ายจราจรขนาดมาตรฐาน ผลิตจากอลูมิเนียม ทนทาน แสงสะท้อนสูง'
+        // โหลดข้อมูลจาก products.json แทน
+        const fallbackResponse = await fetch('./data/products.json');
+        if (fallbackResponse.ok) {
+            productsData = await fallbackResponse.json();
+        } else {
+            // ใช้ข้อมูลจำลองเฉพาะกรณีฉุกเฉิน
+            productsData = {
+                categories: {
+                    'traffic': 'อุปกรณ์จราจร',
+                    'safety': 'อุปกรณ์เซฟตี้', 
+                    'fire': 'เครื่องดับเพลิง'
                 },
-                {
-                    id: 2,
-                    name: 'หมวกนิรภัย ABS',
-                    category: 'safety',
-                    price: 150,
-                    badge: 'มาตรฐาน',
-                    icon: 'fas fa-hard-hat',
-                    color: '#10b981',
-                    description: 'หมวกนิรภัย ABS มาตรฐาน มอก. ปรับขนาดได้ ระบายอากาศดี'
-                },
-                {
-                    id: 3,
-                    name: 'ถังดับเพลิง CO2',
-                    category: 'fire',
-                    price: 2800,
-                    badge: 'รับรอง',
-                    icon: 'fas fa-fire-extinguisher',
-                    color: '#ef4444',
-                    description: 'ถังดับเพลิง CO2 ขนาด 5 ปอนด์ มาตรฐาน UL เหมาะกับไฟไฟฟ้า'
-                }
-            ]
-        };
+                products: [
+                    {
+                        id: 1,
+                        name: 'ป้ายจราจรสี่เหลี่ยม',
+                        category: 'traffic',
+                        price: 500,
+                        badge: 'ขายดี',
+                        icon: 'fas fa-traffic-light',
+                        color: '#2563eb',
+                        description: 'ป้ายจราจรขนาดมาตรฐาน ผลิตจากอลูมิเนียม ทนทาน แสงสะท้อนสูง'
+                    }
+                ]
+            };
+        }
         filteredProducts = [...productsData.products];
         console.log('ใช้ข้อมูลจำลอง');
     }

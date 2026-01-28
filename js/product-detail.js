@@ -49,84 +49,14 @@ async function loadProductsData() {
         productsData = await response.json();
     } catch (error) {
         console.error('Error loading products:', error);
-        // ใช้ข้อมูลจำลองแทน
-        productsData = {
-            categories: {
-                'traffic': 'อุปกรณ์จราจร',
-                'safety': 'อุปกรณ์เซฟตี้', 
-                'fire': 'เครื่องดับเพลิง',
-                'warning': 'ป้ายเตือน',
-                'road': 'วัสดุงานถนน'
-            },
-            products: [
-                {
-                    id: 1,
-                    name: 'ป้ายจราจรสี่เหลี่ยม',
-                    category: 'traffic',
-                    price: 500,
-                    badge: 'ขายดี',
-                    icon: 'fas fa-traffic-light',
-                    color: '#2563eb',
-                    description: 'ป้ายจราจรขนาดมาตรฐาน ผลิตจากอลูมิเนียม ทนทาน แสงสะท้อนสูง เหมาะสำหรับใช้งานทั่วไป',
-                    features: [
-                        'วัสดุอลูมิเนียมคุณภาพสูง',
-                        'แสงสะท้อนสูง มองเห็นชัดเจนในเวลากลางคืน',
-                        'ทนต่อสภาพอากาศ กันน้ำ กันแดด',
-                        'ติดตั้งง่าย มีอุปกรณ์ครบชุด'
-                    ],
-                    specifications: {
-                        'ขนาด': '60 x 60 ซม.',
-                        'วัสดุ': 'อลูมิเนียม',
-                        'ความหนา': '2 มม.',
-                        'น้ำหนัก': '1.5 กก.'
-                    }
-                },
-                {
-                    id: 2,
-                    name: 'หมวกนิรภัย ABS',
-                    category: 'safety',
-                    price: 150,
-                    badge: 'มาตรฐาน',
-                    icon: 'fas fa-hard-hat',
-                    color: '#10b981',
-                    description: 'หมวกนิรภัย ABS มาตรฐาน มอก. ปรับขนาดได้ ระบายอากาศดี เหมาะสำหรับงานก่อสร้าง',
-                    features: [
-                        'วัสดุ ABS คุณภาพสูง',
-                        'ปรับขนาดได้ เหมาะกับศีรษะทุกขนาด',
-                        'ระบายอากาศดี ไม่อับชื้น',
-                        'ผ่านมาตรฐาน มอก. 1494-2541'
-                    ],
-                    specifications: {
-                        'วัสดุ': 'ABS',
-                        'ขนาด': 'ปรับได้ 52-62 ซม.',
-                        'น้ำหนัก': '350 กรัม',
-                        'มาตรฐาน': 'มอก. 1494-2541'
-                    }
-                },
-                {
-                    id: 3,
-                    name: 'ถังดับเพลิง CO2',
-                    category: 'fire',
-                    price: 2800,
-                    badge: 'รับรอง',
-                    icon: 'fas fa-fire-extinguisher',
-                    color: '#ef4444',
-                    description: 'ถังดับเพลิง CO2 ขนาด 5 ปอนด์ มาตรฐาน UL เหมาะกับไฟไฟฟ้า ไม่ทิ้งคราบ',
-                    features: [
-                        'ดับไฟประเภท B และ C',
-                        'ไม่ทิ้งคราบ เหมาะกับอุปกรณ์ไฟฟ้า',
-                        'ผ่านมาตรฐาน UL',
-                        'มีเกจวัดความดัน'
-                    ],
-                    specifications: {
-                        'ขนาด': '5 ปอนด์',
-                        'ประเภทไฟ': 'B, C',
-                        'มาตรฐาน': 'UL Listed',
-                        'น้ำหนัก': '8.5 กก.'
-                    }
-                }
-            ]
-        };
+        // โหลดจาก products.json โดยตรง
+        try {
+            const fallbackResponse = await fetch('./data/products.json');
+            productsData = await fallbackResponse.json();
+        } catch (fallbackError) {
+            console.error('Fallback error:', fallbackError);
+            productsData = { categories: {}, products: [] };
+        }
     }
 }
 
