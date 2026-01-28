@@ -149,12 +149,14 @@ body {
 
 .feature-item {
     display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    background: var(--light-gray);
-    border-radius: 10px;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-color);
     transition: all 0.2s ease;
+    text-align: left;
 }
 
 .feature-item:hover {
